@@ -5,28 +5,12 @@
     <title>Title</title>
 </head>
 <body>
+    <table>
+        {% for generado in generados %}
+            <tr><td>{{ generado.fecha }}</td><td>{{ generado.cantidad }}</td><td><a href="/procesar/{{ generado.id }}/">Procesar</a></td><td>
+                <a href="/ver/{{ generado.id }}/">Ver PDF</a></td></tr>
+        {% endfor %}
 
-    <table border="1">
-        <thead style="font-size: 40px;">
-        <th style="padding-right: 40px;padding-left: 40px; padding-top:15px;padding-bottom:10px; font-weight: bold">B</th>
-        <th style="padding-right: 40px;padding-left: 40px; padding-top:15px;padding-bottom:10px; font-weight: bold">I</th>
-        <th style="padding-right: 40px;padding-left: 40px; padding-top:15px;padding-bottom:10px; font-weight: bold">N</th>
-        <th style="padding-right: 40px;padding-left: 40px; padding-top:15px;padding-bottom:10px; font-weight: bold">G</th>
-        <th style="padding-right: 40px;padding-left: 40px; padding-top:15px;padding-bottom:10px; font-weight: bold">O</th>
-        </thead>
-    <tbody>
-    {% for bingo in cartones %}
-        <tr>
-            <td style="padding-right: 40px;padding-left: 40px; padding-top:20px;padding-bottom:20px;text-align: center; font-size: 30px">{{ bingo.B }}</td>
-            <td style="padding-right: 40px;padding-left: 40px; padding-top:20px;padding-bottom:20px;text-align: center; font-size: 30px">{{ bingo.I }}</td>
-            <td style="padding-right: 40px;padding-left: 40px; padding-top:20px;padding-bottom:20px;text-align: center; font-size: 30px">{{ bingo.N }}</td>
-            <td style="padding-right: 40px;padding-left: 40px; padding-top:20px;padding-bottom:20px;text-align: center; font-size: 30px">{{ bingo.G }}</td>
-            <td style="padding-right: 40px;padding-left: 40px; padding-top:20px;padding-bottom:20px;text-align: center; font-size: 30px">{{ bingo.O }}</td>
-        </tr>
-    {% endfor %}
-    </tbody>
     </table>
-
-
 </body>
 </html>

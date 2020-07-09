@@ -21,4 +21,6 @@ from Principal.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index),
+    path('procesar/<int:n>/', procesar),
+    path('ver/<int:n>/', ver),
 ]
