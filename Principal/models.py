@@ -4,7 +4,7 @@ from django.db import models
 class Bingo(models.Model):
     encabezado=models.CharField(max_length=100)
     organiza=models.TextField(null=True,blank=True)
-    fecha=models.DateField(null=True,blank=True)
+    fecha=models.DateTimeField(null=True,blank=True)
     direccion=models.TextField(null=True,blank=True)
     valor=models.DecimalField(max_digits=9, decimal_places=2, default=0)
     premios=models.TextField(null=True,blank=True)

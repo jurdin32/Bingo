@@ -60,6 +60,7 @@ def procesar(request,n):
 def ver(request,n):
     bingo = Bingo.objects.get(id=n)
     contexto= {
+        "bingo":bingo,
         "bolas":Bolo.objects.filter(bingos=bingo)
     }
     #return render(request,"tablas.html",contexto)

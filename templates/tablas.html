@@ -9,19 +9,46 @@
         @frame header_frame { /* Static frame */
             -pdf-frame-content: header_content;
             left: 20px;
-            width: 842pt;
-            top: 50pt;
-            height: 90pt;
+            width: 520px;
+            top: 20pt;
+            height: 200pt;
             right: 20px;
         }
+        @frame header_frame { /* Static frame */
+            -pdf-frame-content: cabecera;
+            left: 20px;
+            width: 520px;
+            top: 150pt;
+            height: 200pt;
+            right: 20px;
+        }
+
+        @frame header_frame { /* Static frame */
+            -pdf-frame-content: header_content_2;
+            left: 580px;
+            width: 520px;
+            top: 20pt;
+            height: 200pt;
+            right: 20px;
+        }
+
+        @frame header_frame { /* Static frame */
+            -pdf-frame-content: cabecera_2;
+            left: 580px;
+            width: 520px;
+            top: 150pt;
+            height: 200pt;
+            right: 20px;
+        }
+
             @frame col1_frame { /* Content frame 1 */
             left: 20px;
             width: 520px;
-            top: 200pt;
+            top: 210pt;
             height: 400px;
         }
             @frame col2_frame { /* Content frame 2 */
-            left:580px; width: 520px; top: 200pt; height: 400px;
+            left:580px; width: 520px; top: 210pt; height: 400px;
         }
             @frame footer_frame { /* Static frame */
             -pdf-frame-content: footer_content;
@@ -39,35 +66,95 @@
 </style>
 </head>
 <body>
-    <table style="font-size: 40px; text-align: center" border="1px">
+    <table style="font-size: 30px; text-align: center" border="1px">
         {% for bola in bolas %}
         <tr>
-            <td style="padding: 5px">{{ bola.b }}</td>
-            <td style="padding: 5px">{{ bola.i }}</td>
-            <td style="padding: 5px">{{ bola.n }}</td>
-            <td style="padding: 5px">{{ bola.g }}</td>
-            <td style="padding: 5px">{{ bola.o }}</td>
+            <td style="padding: 5px;padding-top: 10px">{{ bola.b }}</td>
+            <td style="padding: 5px;padding-top: 10px">{{ bola.i }}</td>
+            {% if bola.n == 0 %}
+                <td style="padding: 5px;padding-top: 10px"><img src="https://img1.freepng.es/20190225/rst/kisspng-bingo-clip-art-logo-illustration-game-hvordan-finne-de-beste-online-bingo-nettstedene-fo-5c74713352bbf9.4473006415511350273389.jpg" alt=""></td>
+                {% else %}
+                <td style="padding: 5px;padding-top: 10px">{{ bola.n }}</td>
+            {% endif %}
+
+            <td style="padding: 5px;padding-top: 10px">{{ bola.g }}</td>
+            <td style="padding: 5px;padding-top: 10px">{{ bola.o }}</td>
         </tr>
         {% endfor %}
 
     </table>
-<div id="header_content">Lyrics-R-Us</div>
-<div id="footer_content" style="border: 1px black solid">
-   <p>
-       a <br>
-       b <br>
-       c <br>
-       d <br>
-       e
+<div id="header_content" style="border: 1px solid;">
+    <table style="font-size: 14px">
+        <tr><td colspan="2" style="text-align: center"> <label style="font-size: 30px; font-weight: bold">{{ bingo.encabezado }} </label><br></td></tr>
+        <tr>
+            <td style="width: 120px; font-weight: bold">Organiza:</td>
+            <td style="width: 500px">{{  bingo.organiza|truncatewords:20  }}</td>
+        </tr>
+        <tr>
+            <td style="width: 120px; font-weight: bold">Fecha:</td>
+            <td style="width: 500px">{{ bingo.fecha }}</td>
+        </tr>
+        <tr>
+            <td style="width: 120px; font-weight: bold">Dirección:</td>
+            <td style="width: 500px">{{ bingo.direccion }}</td>
+        </tr>
+        <tr>
+            <td style="width: 120px; font-weight: bold">Valor:</td>
+            <td style="width: 500px">${{ bingo.valor }}</td>
+        </tr>
+    </table>
+</div>
+<div id="cabecera">
+    <table border="1px" style="font-size: 40px; text-align: center; top: 100px;font-weight: bold">
+        <tr>
+            <td style="padding: 5px">B</td>
+            <td style="padding: 5px">I</td>
+            <td style="padding: 5px">N</td>
+            <td style="padding: 5px">G</td>
+            <td style="padding: 5px">O</td>
+        </tr>
+    </table>
+</div>
+<div id="header_content_2"style="border: 1px solid">
+    <table style="font-size: 14px">
+        <tr><td colspan="2" style="text-align: center"> <label style="font-size: 40px; font-weight: bold">{{ bingo.encabezado }} </label><br></td></tr>
+        <tr>
+            <td style="width: 120px; font-weight: bold">Organiza:</td>
+            <td style="width: 500px">{{ bingo.organiza|truncatewords:20 }}</td>
+        </tr>
+        <tr>
+            <td style="width: 120px; font-weight: bold">Fecha:</td>
+            <td style="width: 500px">{{ bingo.fecha }}</td>
+        </tr>
+        <tr>
+            <td style="width: 120px; font-weight: bold">Dirección:</td>
+            <td style="width: 500px">{{ bingo.direccion }}</td>
+        </tr>
+        <tr>
+            <td style="width: 120px; font-weight: bold">Valor:</td>
+            <td style="width: 500px">${{ bingo.valor }}</td>
+        </tr>
+    </table>
+</div>
+    <div id="cabecera_2">
+    <table border="1px" style="font-size: 40px; text-align: center; top: 100px; font-weight: bold">
+        <tr>
+            <td style="padding: 5px">B</td>
+            <td style="padding: 5px">I</td>
+            <td style="padding: 5px">N</td>
+            <td style="padding: 5px">G</td>
+            <td style="padding: 5px">O</td>
+        </tr>
+    </table>
+</div>
+<div id="footer_content" style="border: 1px black solid;">
+   <p style="padding: 5px">
+       {{bingo.premios|linebreaksbr}}
    </p>
 </div>
 <div id="footer_content_2" style="border: 1px black solid">
-   <p>
-       a <br>
-       b <br>
-       c <br>
-       d <br>
-       e
+   <p style="padding: 5px">
+       {{bingo.premios|linebreaksbr}}
    </p>
 </div>
 </body>
